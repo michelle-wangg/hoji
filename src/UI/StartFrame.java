@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.awt.image.BufferedImage; 
 
-public class StartFrame {
+public class StartFrame implements ActionListener {
 
     public JFrame startFrame;
     public ViewDeck viewDeck; 

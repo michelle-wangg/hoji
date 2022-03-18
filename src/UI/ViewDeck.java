@@ -11,6 +11,7 @@ public class ViewDeck implements ActionListener {
     private JButton newCard;
     private NewCard newCardWindow;
     private Deck deckOfCards;
+    private static final String JSON_Save = "./data/BackEnd.json";
 
     public ViewDeck() {
         initViewDeck();
@@ -18,7 +19,8 @@ public class ViewDeck implements ActionListener {
     }
 
     public void initViewDeck() {
-        viewDeck = new JFrame(); 
+        viewDeck = new JFrame();
+
     }
 
 	public void actionPerformed(ActionEvent e) {

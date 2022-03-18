@@ -56,11 +56,16 @@ public class AddCard implements ActionListener{
         frame.add(level);
     }
 
-
-
-    public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == start) {
-	    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+    
+    public void addButtonAction(){
+        addButton.addActionListener(new ActionListener(){
+            
+        });
     }
 
 }
