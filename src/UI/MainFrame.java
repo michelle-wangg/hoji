@@ -4,9 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainFrame implements ActionListener {
 
@@ -18,6 +15,8 @@ public class MainFrame implements ActionListener {
     private JButton wrong;
     private JButton start;
     private JButton pause;
+
+    private PomoTimer pomo;
 
 
     public MainFrame() {
@@ -53,6 +52,7 @@ public class MainFrame implements ActionListener {
         pause.setSize(new Dimension(300, 300));
         pause.addActionListener(this);
         pause.add(correct);
+
     }
 
 
@@ -62,9 +62,9 @@ public class MainFrame implements ActionListener {
         } else if (e.getSource() == wrong) {
             // WRONG
         } else if (e.getSource() == start) {
-            timer.start();
+            pomo.startTimer();
         } else if (e.getSource() == pause) {
-            timer.stop();
+            pomo.stopTimer();
         }
     }
 

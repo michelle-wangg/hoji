@@ -6,10 +6,15 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 public class ViewDeck implements ActionListener {
-    private JFrame viewDeck;
+    public JFrame viewDeck;
+    private JButton delete;
+    private JButton newCard;
+    private NewCard newCardWindow;
+    private Deck deckOfCards;
 
     public ViewDeck() {
-
+        initViewDeck();
+        initButton();
     }
 
     public void initViewDeck() {
@@ -18,6 +23,17 @@ public class ViewDeck implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getSource() = delete) {
+           // ....
+        } else if (e.getSource() = newCard) {
+                newCardWindow = new NewCard();
+        }
 	}
+
+    public void initButton() {
+        delete = new JButton("Delete");
+        delete.addActionListener(this);
+        newCard = new JButton("Add Card");
+        newCard.addActionListener(this);
+    }
 }

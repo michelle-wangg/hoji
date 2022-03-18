@@ -1,16 +1,19 @@
-package UI;
+package UI; 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
+import java.awt.image.BufferedImage; 
 
-public class StartFrame implements ActionListener {
+public class StartFrame {
 
-    private JFrame startFrame;
+    public JFrame startFrame;
+    public ViewDeck viewDeck; 
     public static int WIDTH = 500;
     public static int HEIGHT = 500;
     private JButton start; 
+    private BufferedImage welcomeImage;
 
     public StartFrame() {
         initStartFrame(); 
@@ -18,6 +21,7 @@ public class StartFrame implements ActionListener {
 
     public void initStartFrame() {
         startFrame = new JFrame();
+        startFrame.setVisible(true);
         startFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         startFrame.setSize(WIDTH, HEIGHT); 
 
@@ -29,11 +33,13 @@ public class StartFrame implements ActionListener {
         start.setSize(new Dimension(300, 300));
         start.addActionListener(this);
         startFrame.add(start); 
-
     } 
 
-	public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == start) {
-            MainFrame.
-	}
+            startFrame.setVisible(false); 
+            viewDeck = new ViewDeck(); 
+            viewDeck.viewDeck.setVisible(true); 
+	    }
+    }  
 }

@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
-public class AddCard implements ActionListener{
+public class NewCard implements ActionListener{
 
     public JFrame frame;
     private JButton addButton;
@@ -14,8 +14,7 @@ public class AddCard implements ActionListener{
     private JTextField answer;
     private JComboBox level;
 
-
-    public AddCard() {
+    public NewCard() {
         initNewCardFrame();
     }
 
@@ -23,14 +22,14 @@ public class AddCard implements ActionListener{
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(650, 500);
-        initNewCardFrame();
-        initNewCardButtons();
+        initAddCardFrame();
+        initAddCardButtons();
         initTextFields();
         initDropDown();
         addElementsToPanel();
     }
 
-    public void initNewCardButtons() {
+    public void initAddCardButtons() {
         addButton = new JButton("Add FlashCard");
         addButton.setSize(new Dimension(300, 300));
         addButton.addActionListener(this);
@@ -56,11 +55,13 @@ public class AddCard implements ActionListener{
         frame.add(level);
     }
 
+    public void addButtonAction(){
+        addButton.addActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
 
-
-    public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == start) {
-	    }
+            }
+        
+        });
     }
-
 }
