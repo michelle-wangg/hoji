@@ -7,29 +7,60 @@ import java.util.*;
 
 public class AddCard implements ActionListener {
 
-    public JFrame addCardFrame;
-    private JButton add;
-    private JButton delete;
+    public JFrame frame;
+    private JButton addButton;
     private JTextField question;
     private JTextField answer;
     private JComboBox level;
 
     public AddCard() {
-
+        initAddCardFrame();
     }
 
     public void initAddCardFrame() {
-        addCardFrame = new JFrame();
+        frame = new JFrame();
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(650,500);
+        initAddCardFrame();
+        initAddCardButtons();
+        initTextFields();
+        initDropDown();
+        addElementsToPanel();
     }
 
     public void initAddCardButtons() {
-        add = new JButton("Add FlashCard");
-        add.setSize(new Dimension(300, 300));
-        add.addActionListener(this);
+        addButton = new JButton("Add FlashCard");
+        addButton.setSize(new Dimension(300, 300)); 
+        addButton.addActionListener(this);
+    }
+    
+    public void initTextFields(){
+    question.setText(null);
+    answer.setText(null);
+    }
+
+    public void initDropDown(){
+        String[]levels = {"Easy","Medium","Hard"};
+        level = new JComboBox(levels);
+        level.setSelectedIndex(2);
+        level.addActionListener(this);
     }
 
     public void addElementsToPanel(){
-    
-    }
+    frame.add(addButton);
+    frame.add(question);
+    frame.add(answer);
+    frame.add(level);
+    frame.add(level);
+    } 
 
+    public void addButtonAction(){
+        addButton.addActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        
+        }
+    }
 }
+

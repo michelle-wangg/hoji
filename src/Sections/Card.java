@@ -27,12 +27,4 @@ public class Card {
     public int getLevel() { 
         return level; 
     }
-
-    // public void editQuestion(Card card, String newQuestion) { 
-        
-    // }
-
-    // public void editAnswer(Card card, String newAnswer) { 
-
-    // } 
 }
