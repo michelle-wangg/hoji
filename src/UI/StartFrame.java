@@ -5,15 +5,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import java.awt.image.BufferedImage; 
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class StartFrame implements ActionListener {
 
-    public JFrame startFrame;
-    public ViewDeck viewDeck; 
     public static int WIDTH = 500;
     public static int HEIGHT = 500;
+
+    public JFrame startFrame;
+    public ViewDeck viewDeck; 
     private JButton start; 
-    private BufferedImage welcomeImage;
+    private BufferedImage startBackground; 
+    private JLabel startBackgroundLabel; 
+    
 
     public StartFrame() {
         initStartFrame(); 
@@ -25,6 +32,14 @@ public class StartFrame implements ActionListener {
         startFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         startFrame.setSize(WIDTH, HEIGHT); 
         initStartButtons(); 
+
+        try { // background image 
+            startBackground = ImageIO.read(new File("./startBackground.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        startBackgroundLabel = new JLabel(new ImageIcon(startBackground));
+        startBackgroundLabel.setBounds(0, 0, 500, 500); 
     }
     
     public void initStartButtons() { 

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
+import Sections.*;
 
 public class AddCard implements ActionListener{
 
@@ -14,7 +14,7 @@ public class AddCard implements ActionListener{
     private JTextField questionField;
     private JTextField answerField;
     private JComboBox level;
-
+    Deck deck = new Deck();
 
     public AddCard() {
         initNewCardFrame();
@@ -23,11 +23,13 @@ public class AddCard implements ActionListener{
     public void initNewCardFrame() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(650, 500);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+        errorFrame = new JFrame();
         initNewCardFrame();
-        initNewCardButtons();
         initTextFields();
         initDropDown();
+        initNewCardButtons();
         addElementsToPanel();
     }
 
@@ -59,21 +61,23 @@ public class AddCard implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource() == addButton){
+         checkTextFields();
+         addNewCard();	   
+        }
 		
 	}
     
-    public void addButtonAction(){
-        addButton.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			checkTextFields();
-            addNewCard();
-				
-			}
+    // public void addButtonAction(){
+    //     addButton.addActionListener(new ActionListener(){
+	// 		@Override
+	// 		public void actionPerformed(ActionEvent e) {
+	// 		checkTextFields();
+    //         addNewCard();	
+	// 		}
             
-        });
-    }
+    //     });
+    // }
 
 
 private void errorWindow(String string){
@@ -96,7 +100,18 @@ private void checkTextFields(){
 }
 
 private void addNewCard(){
-    
+    int levelNum = 0; 
+    if(level.getSelectedItem() == "Easy"){
+        levelNum = 1;
+    }
+    if(level.getSelectedItem() == "Medium"){
+        levelNum = 2;
+    }
+    if(level.getSelectedItem() == "Hard"){
+        levelNum = 3;
+    }
+    Card card = new Card(questionField.getText(), answerField.getText(), levelNum);
+    deck.addCard(card);
 }
 
 

@@ -1,11 +1,11 @@
 package Sections;  
 import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
 
 // deck of cards 
 public class Deck { 
 
-    private List<Card> deck; 
+    public List<Card> deck; 
     
     // initializes a deck 
     public Deck() { 
@@ -29,6 +29,10 @@ public class Deck {
     // count of cards in deck 
     public int getDeckCount() { 
         return deck.size();
+    }
+
+    public Card getNextCard(int index) {
+        return deck.get(index+1);
     }
     
 }

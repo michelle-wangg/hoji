@@ -4,17 +4,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.GridBagLayout;
+import Sections.*;
 
 public class MainFrame implements ActionListener {
 
     public JFrame mainFrame;
-    public static int WIDTH = 500;
-    public static int HEIGHT = 500;
+    public Deck deck;
 
     private JButton correct;
     private JButton wrong;
     private JButton start;
     private JButton pause;
+    public static int WIDTH = 500;
+    public static int HEIGHT = 500;
+
+    public JPanel mainPanel;
 
     private PomoTimer pomo;
 
@@ -25,6 +30,8 @@ public class MainFrame implements ActionListener {
 
     public void initMainFrame() {
         mainFrame = new JFrame();
+        mainPanel = new JPanel(new GridBagLayout());
+        mainFrame.add(mainPanel);
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mainFrame.setSize(WIDTH, HEIGHT);
 
@@ -36,29 +43,28 @@ public class MainFrame implements ActionListener {
         correct = new JButton("\u2705");
         correct.setSize(new Dimension(300, 300));
         correct.addActionListener(this);
-        mainFrame.add(correct);
+        mainPanel.add(correct);
 
         wrong = new JButton("\u2716");
         wrong.setSize(new Dimension(300, 300));
         wrong.addActionListener(this);
-        wrong.add(correct);
+        mainPanel.add(correct);
 
         start = new JButton("Start");
         start.setSize(new Dimension(300, 300));
         start.addActionListener(this);
-        start.add(correct);
+        mainPanel.add(correct);
 
         pause = new JButton("Pause");
         pause.setSize(new Dimension(300, 300));
         pause.addActionListener(this);
-        pause.add(correct);
+        mainPanel.add(correct);
 
     }
 
-
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == correct) {
-            // NEXT CARD
+            // deck.getNextCard();
         } else if (e.getSource() == wrong) {
             // WRONG
         } else if (e.getSource() == start) {
