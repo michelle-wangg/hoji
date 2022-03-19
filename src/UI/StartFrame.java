@@ -24,7 +24,6 @@ public class StartFrame implements ActionListener {
         startFrame.setVisible(true);
         startFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         startFrame.setSize(WIDTH, HEIGHT); 
-
         initStartButtons(); 
     }
     
@@ -41,5 +40,7 @@ public class StartFrame implements ActionListener {
             viewDeck = new ViewDeck(); 
             viewDeck.viewDeck.setVisible(true); 
 	    }
-    }  
+    }
+
+
 }

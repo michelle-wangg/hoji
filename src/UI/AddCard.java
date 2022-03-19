@@ -9,9 +9,10 @@ import java.util.*;
 public class AddCard implements ActionListener{
 
     public JFrame frame;
+    public JFrame errorFrame;
     private JButton addButton;
-    private JTextField question;
-    private JTextField answer;
+    private JTextField questionField;
+    private JTextField answerField;
     private JComboBox level;
 
 
@@ -37,8 +38,8 @@ public class AddCard implements ActionListener{
     }
 
     public void initTextFields() {
-        question.setText(null);
-        answer.setText(null);
+        questionField.setText(null);
+        answerField.setText(null);
     }
 
     public void initDropDown() {
@@ -50,8 +51,8 @@ public class AddCard implements ActionListener{
 
     public void addElementsToPanel() {
         frame.add(addButton);
-        frame.add(question);
-        frame.add(answer);
+        frame.add(questionField);
+        frame.add(answerField);
         frame.add(level);
         frame.add(level);
     }
@@ -64,8 +65,39 @@ public class AddCard implements ActionListener{
     
     public void addButtonAction(){
         addButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			checkTextFields();
+            addNewCard();
+				
+			}
             
         });
     }
+
+
+private void errorWindow(String string){
+    JOptionPane.showMessageDialog(errorFrame,string);
+    initTextFields();
+}
+
+private void checkTextFields(){
+    String question = questionField.getText();
+    String answer  = answerField.getText();
+    if(question.isEmpty()){
+        errorWindow("Please enter a valid question!");
+    }
+    if(answer.isEmpty()){
+        errorWindow("Please enter a valid answer!");
+    }
+    if(question.isEmpty() && answer.isEmpty()){
+        errorWindow("No question or answer entered!");
+    }
+}
+
+private void addNewCard(){
+    
+}
+
 
 }
