@@ -19,8 +19,8 @@ public class StartFrame implements ActionListener {
     public ViewDeck viewDeck; 
     private JButton start; 
     private BufferedImage startBackground; 
-    private JLabel startBackgroundLabel; 
-    
+    private JLabel startBackgroundLabel;
+    private Jlabel d;
 
     public StartFrame() {
         initStartFrame(); 
