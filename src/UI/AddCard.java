@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import Sections.*;
 
 public class AddCard implements ActionListener{
-
+//fefefefefef
     public JFrame frame;
     public JFrame errorFrame;
     private JButton addButton;
